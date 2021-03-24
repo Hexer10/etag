@@ -17,7 +17,8 @@ String etag(dynamic entity, {bool? weak}) {
     isWeak = weak ?? true;
     tag = _stattag(entity);
   } else {
-    throw ArgumentError.value(entity, 'entity must be either of type String, Uint8List, or FileStat.');
+    throw ArgumentError.value(entity,
+        'entity must be either of type String, Uint8List, or FileStat.');
   }
 
   return isWeak ? 'W/"$tag"' : '"$tag"';
@@ -27,7 +28,8 @@ String etag(dynamic entity, {bool? weak}) {
 /// [entity] must be of type [String] or [Uint8List].
 String _entitytag(dynamic entity) {
   if (entity is! String && entity is! Uint8List) {
-    throw ArgumentError.value(entity, 'entity must be either of type String or Uint8List.');
+    throw ArgumentError.value(
+        entity, 'entity must be either of type String or Uint8List.');
   }
 
   if (entity.isEmpty) {
